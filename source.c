@@ -28,19 +28,19 @@ int main() {
 
         for (int j = 0; j < n; j++) {
 
-            if ((i == j) && (arr[i * n + j] != 0)) {    //проверка диагонали
+            if ((i == j) && (arr[i * n + j] != 0)) {    //diagonal check
                 prov = true;
             }
 
-            if (arr[i * n + j] != arr[j * n + i]) {     //проверка симметричности относительно диагонали
+            if (arr[i * n + j] != arr[j * n + i]) {     //diagonal symmetry check
                 prov = true;
             }
 
-            if ((arr[i * n + j] != 0) && (arr[i * n + j] != 1)) {      //проверка либо отсутвия ребра между вершинами, либо наличия лишь 1 таковой
+            if ((arr[i * n + j] != 0) && (arr[i * n + j] != 1)) {      //check connections 
                 prov = true;
             }
 
-            if (arr[i * n + j] == 1) {      //проверка того, что из каждой вершины выходит ровно 2 ребра
+            if (arr[i * n + j] == 1) {      //check if each point has exactly 2 connections
                 k++;
             }
 
@@ -55,7 +55,7 @@ int main() {
 
         for (int j = 0; j < n; j++) {
 
-            if ((arr[k * n + j] == 1) && (j != t) && (flag == false)) {     //проверка обходом
+            if ((arr[k * n + j] == 1) && (j != t) && (flag == false)) {     //depth-first search
                 t = k;
                 k = j;
                 flag = true;
@@ -77,7 +77,7 @@ int main() {
     else
         printf("not a simple cycle");
 
-    // визуализация //
+    // visualisation //
 
     FILE* file;
 
